@@ -206,7 +206,7 @@ section .title::after {
 /* Home Section Styling */
 .home {
     display: flex;
-    background: url("benner.jpg") no-repeat center;
+    background: url("banner.png") no-repeat center;
     height: 100vh;
     color: var(--white);
     min-height: 500px;
@@ -559,6 +559,13 @@ section .title::after {
     transition: all 0.3s ease;
     text-align: center;
 }
+.projects .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
 
 .projects .card:hover {
     transform: translateY(-10px);
@@ -572,11 +579,11 @@ section .title::after {
     color: var(--text-color);
 }
 
-.projects .card p {
+/*.projects .card p {
     font-size: 16px;
     color: #555;
     margin: 10px 0;
-}
+}*/
 
 .projects .card a {
     display: inline-block;
