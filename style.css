@@ -243,24 +243,15 @@ section .title::after {
 
 /* Home Section Styling */
 .home {
-  display: flex;
-  background: url("banner.png") no-repeat center;
-  height: 100vh;
-  color: var(--white);
-  min-height: 500px;
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    background: url("banner.png") no-repeat center;
+    height: 100vh;
+    color: var(--white);
+    min-height: 500px;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
 }
-
-@media (max-width: 768px) {
-  .home {
-    background-size: contain;
-    background-position: center top;
-    background-repeat: no-repeat;
-  }
-}
-
 
 .home .max-width {
     width: 100%;
