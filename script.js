@@ -115,7 +115,7 @@ $(document).ready(function () {
             subject: $('#subject').val(),
             message: $('#message').val(),
         };
-
+        
         // Send email using EmailJS
         emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData) // Replace with your Service ID and Template ID
             .then(

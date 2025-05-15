@@ -83,29 +83,32 @@ footer {
 .skill-block {
     width: 160px;
     height: 140px;
-    background-color: #efefee;
+    background-color: #ffffff;
     border-radius: 10px;
-    font-weight: bold;
-    font-size: 16px;
     box-shadow: 0 4px 6px rgb(68, 67, 67);
     transition: transform 0.2s;
+    overflow: hidden;
+    padding: 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 15px;
 }
 
 .skill-block:hover {
     transform: scale(1.05);
-    background-color: #e0e0e0;
+    background-color: #fac0009a;
 }
 
 .skill-block img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hide the text */
+.skill-block span {
+    display: none;
 }
 
 section .title {
@@ -240,15 +243,24 @@ section .title::after {
 
 /* Home Section Styling */
 .home {
-    display: flex;
-    background: url("banner.png") no-repeat center;
-    height: 100vh;
-    color: var(--white);
-    min-height: 500px;
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  background: url("banner.png") no-repeat center;
+  height: 100vh;
+  color: var(--white);
+  min-height: 500px;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Ubuntu', sans-serif;
 }
+
+@media (max-width: 768px) {
+  .home {
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+}
+
 
 .home .max-width {
     width: 100%;
@@ -372,7 +384,7 @@ section .title::after {
 
 .services .serv-content .card:hover {
     background: var(--primary-color);
-    color: var(--black);
+    color: black;
 }
 
 .services .serv-content .card .box {
@@ -390,14 +402,17 @@ section .title::after {
 }
 
 .services .serv-content .card:hover i {
-    color: var(--white);
+    color: rgb(255, 255, 255);
 }
 
 .services .serv-content .card .text {
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
+    color: rgb(255, 255, 255);
 }
+
+
 
 /* Skills Section Styling */
 .skills .title::after {
@@ -467,92 +482,107 @@ section .title::after {
     top: 0;
     background: var(--primary-color);
 }
-
-.skills-content .right .html::before {
-    width: 70%;
-}
-
-.skills-content .right .css::before {
-    width: 60%;
-}
-
-.skills-content .right .js::before {
-    width: 45%;
-}
-
-.skills-content .right .java::before {
-    width: 50%;
-}
-
-.skills-content .right .mysql::before {
-    width: 60%;
-}
-
-/* Certificates Section Styling */
 .certificates {
-    background: var(--background-color);
+    background: #f9f9f9;
+    padding: 50px 20px;
 }
 
-.certificates .title::after {
-    content: "My Certificates";
+.certificates .title {
+    text-align: center;
+    font-size: 2.5rem;
     color: var(--primary-color);
+    margin-bottom: 40px;
 }
 
 .certificates .certificates-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px; /* Adds spacing between cards */
+    justify-content: center;
+    gap: 30px;
 }
 
-.certificates .card {
-    width: calc(33.33% - 20px); /* Ensures 3 columns with gap */
-    background: var(--white);
-    border-radius: 6px;
-    padding: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+.card-container {
+    perspective: 1000px;
+    width: 300px;
+    height: 350px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    background: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front {
+    z-index: 2;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: #fff;
+    padding: 0;
+}
+
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.card .text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
     text-align: center;
 }
 
-.certificates .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.certificates .card .text {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
-.certificates .card p {
-    font-size: 16px;
+.card p {
+    font-size: 0.95rem;
     color: #555;
-    margin: 10px 0;
+    margin: 5px 0;
+    text-align: center;
 }
 
-.certificates .card p strong {
-    color: var(--black);
-}
-
-.certificates .card a {
-    display: inline-block;
+.card a.flip-btn {
     background: var(--primary-color);
-    color: var(--black);
-    font-size: 16px;
-    font-weight: 500;
+    color: white;
+    font-size: 1rem;
     padding: 10px 20px;
     margin-top: 15px;
-    border-radius: 6px;
-    border: 2px solid var(--primary-color);
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.certificates .card a:hover {
-    background: none;
-    color: var(--primary-color);
+.card a.flip-btn:hover {
+    background: #ffd102;
 }
 
 /* Responsive Design for Certificates Section */
@@ -570,12 +600,16 @@ section .title::after {
 
 /* Projects Section Styling */
 .projects {
-    background: var(--white);
+    /*background: var(--white);*/
+    background-image: url("bg009.png");
 }
-
+.projects .title{
+    color: white;
+}
 .projects .title::after {
-    content: "My Projects";
-    color: var(--primary-color);
+    /*content: "My Portfolio";*/
+    /*color: var(--primary-color);*/
+    color:rgb(255, 255, 255)
 }
 
 .projects .projects-content {
@@ -590,13 +624,13 @@ section .title::after {
     background: var(--background-color);
     border-radius: 6px;
     padding: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 196, 2, 0.1);
     transition: all 0.3s ease;
     text-align: center;
 }
 .projects .card img {
     width: 100%;
-    height: auto;
+    height: 190px;
     border-radius: 6px;
     object-fit: cover;
 }
