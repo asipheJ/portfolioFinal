@@ -216,9 +216,9 @@ section .title::after {
 
 @media (max-width: 700px) {
     .social-icons {
-        margin-top: 32px;
-        margin-left: 0;
-        justify-content: center;  /* Center icons on small screens */
+        margin-top: -532px;
+        margin-left: -320px;
+        justify-content:left; /* Center icons on small screens */
         gap: 16px;                /* Slightly reduce gap */
     }
     .social-icons a {
@@ -277,7 +277,7 @@ section .title::after {
 /* Home Section Styling */
 .home {
     display: flex;
-    background: url("img/Banner2006.png") no-repeat center;
+    background: url("img/Banner2007.png") no-repeat center;
     background-size:cover;
     height: 100vh;
     color: var(--white);
