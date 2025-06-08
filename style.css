@@ -199,7 +199,7 @@ section .title::after {
 }
 
 .social-icons {
-    margin-top: 210px;
+    margin-top: 260px;
     margin-left: -330px;
     display: flex;
     gap: 20px;
@@ -216,7 +216,7 @@ section .title::after {
 
 @media (max-width: 700px) {
     .social-icons {
-        margin-top: -532px;
+        margin-top: -592px;
         margin-left: -320px;
         justify-content:left; /* Center icons on small screens */
         gap: 16px;                /* Slightly reduce gap */
@@ -314,7 +314,7 @@ section .title::after {
     color: var(--black);
     font-size: 1.25rem;              /* Responsive font sizing */
     padding: 0.75rem 2.25rem;        /* Responsive padding */
-    margin-top: 4.375rem;            /* 70px in rem */
+    margin-top: 7.375rem;            /* 70px in rem */
     margin-left: 0;              /* Slightly bolder for visibility */
     border-radius: 2rem;
     transition:
@@ -335,7 +335,7 @@ section .title::after {
 .home .home-content a:hover {
     color: var(--secondary-color);
 background: white;
-box-shadow: 0 2px 4px 0 #e99f00, 0 1px 10px 0 #e95500;
+box-shadow: 0 2px 4px 0 #e99f00, 0 1px 6px 0 #e95500;
 }
 
 
