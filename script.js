@@ -195,3 +195,34 @@ for (let i = 1; i <= 5; i++) {
       }
     }
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const projects = document.querySelectorAll('.project-carousel .project-content');
+    const prevBtn = document.getElementById('prevProject');
+    const nextBtn = document.getElementById('nextProject');
+    let current = 0;
+  
+    function showProject(index) {
+      projects.forEach((proj, i) => {
+        proj.classList.toggle('active', i === index);
+      });
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === projects.length - 1;
+    }
+  
+    prevBtn.addEventListener('click', () => {
+      if (current > 0) {
+        current--;
+        showProject(current);
+      }
+    });
+  
+    nextBtn.addEventListener('click', () => {
+      if (current < projects.length - 1) {
+        current++;
+        showProject(current);
+      }
+    });
+  
+    showProject(current);
+  });
